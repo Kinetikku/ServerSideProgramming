@@ -32,13 +32,11 @@ var myServer = http.createServer(function(request, response) {
                         break;
                         
         // http://localhost:3000/?page=album
-        case "album":   // provide missing code
-                        // ...
+        case "album":   query="SELECT * FROM album";
                         break;
 
         // http://localhost:3000/?page=albumFilter&artist_id=1
-        case "albumFilter": // provide missing code
-                            // ...
+        case "albumFilter": query="SELECT * FROM album WHERE artist_id=" + q.query.artist_id;
                             break;
         
         default: query="SHOW TABLES";
