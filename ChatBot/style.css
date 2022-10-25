@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .chatBox {
     width: 60%;
     height: 30rem;
@@ -12,7 +16,8 @@
     width: 100%;
     height: 90%;
     background-color: rgb(43, 43, 43);
-    overflow:hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: .25rem .25rem 0 0;
 }
 
@@ -44,20 +49,61 @@
     float: left;
 }
 
+.messageCon {
+    display: block;
+    width: 100%;
+    height: 17%;
+}
+
+.senderName {
+    position: relative;
+    color: white;
+    margin-top: 3%;
+    float: right;
+    margin-right: 2%;
+}
+
+.recieverName {
+    position: relative;
+    color: white;
+    margin-top: 3%;
+    float: left;
+    margin-left: 2%;
+}
+
 .sender {
+    max-width: 50%;
     width: auto;
     float: right;
     padding: .5rem 1rem;
     background-color: rgb(255, 201, 142);
-    margin-right: 5%;
+    margin-right: 3%;
     border-radius: 1rem;
 }
 
 .reciever {
+    max-width: 50%;
     width: auto;
     float: left;
     padding: .5rem 1rem;
     background-color: rgb(255, 172, 142);
-    margin-left: 5%;
+    margin-left: 3%;
     border-radius: 1rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #272727;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bababa;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8a8a8a;
 }

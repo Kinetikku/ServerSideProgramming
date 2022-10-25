@@ -1,0 +1,34 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "This is a webapp that listens every few secound and if it detects a message it will feed that info back to the relevant site. It's a very basic chat system like messenger.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kinetikku/ChatBot.git"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css",
+    "node",
+    "node.js",
+    "prototype",
+    "training",
+    "exercise"
+  ],
+  "author": "Gareth Craig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kinetikku/ChatBot/issues"
+  },
+  "homepage": "https://github.com/Kinetikku/ChatBot#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
