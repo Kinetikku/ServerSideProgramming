@@ -13,7 +13,9 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql": "^2.18.1",
+    "nocache": "^3.0.4",
     "nodemon": "^2.0.20",
+    "path": "^0.12.7",
     "phpmyadmin": "^0.0.1-security",
     "underscore": "^1.13.6"
   }

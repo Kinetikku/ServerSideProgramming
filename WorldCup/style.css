@@ -1,0 +1,22 @@
+navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbarList {
+    list-style-type: none;
+}
+
+#navbarList li {
+    float: left;
+}
+
+#navbarList li a {
+    text-align: center;
+    padding: .4rem;
+    margin: .6rem;
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
