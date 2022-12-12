@@ -20,3 +20,12 @@ navbar {
     color: #000000;
     cursor: pointer;
 }
+
+h1 {
+    text-align: center;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
