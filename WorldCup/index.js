@@ -38,14 +38,9 @@ app.get("/todaysMatches/:day?/:month?/:year?", function(request, response){
     model.getTodaysMatches(request, response, {day:request.params.day}, {month:request.params.month}, {year: request.params.year});
 });
 
-//Returns the today page when the navbar is clicked
-app.get("/today.html", function(request, response){
-    console.log("Today Page");
-});
-
 //Returns the fixtures page when the navbar is clicked
-app.get("/fixtures.html", function(request, response){
-    console.log("Fixtures Page");
+app.get("/fixtures", function(request, response){
+    model.getFixtures(request, response);
 });
 
 //Returns the results page when the navbar is clicked

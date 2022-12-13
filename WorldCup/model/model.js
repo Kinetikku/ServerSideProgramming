@@ -15,7 +15,6 @@ connection.connect(function(err){
 
 function getTeams(request, response){
     connection.query("SELECT * FROM teams", function(err, rows, fields){
-        console.log("inside the teams query");
         if (err) throw err;
 
         response.send(JSON.stringify(rows));
@@ -54,9 +53,18 @@ function getTodaysMatches(request, response, day, month, year){
     });
 }
 
+function getFixtures(request, response){
+    connection.query("SELECT * FROM fixturesresults;", function(err, rows, fields){
+        if (err) throw err;
+        console.log(rows);
+        response.send(JSON.stringify(rows));
+    });
+}
+
 module.exports = {
     getTeams,
     getPlayers,
     getPlayersSpecific,
-    getTodaysMatches
+    getTodaysMatches,
+    getFixtures
 }
