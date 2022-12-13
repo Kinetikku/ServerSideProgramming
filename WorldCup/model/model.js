@@ -13,16 +13,16 @@ connection.connect(function(err){
     console.log("Connected Successfully to World Cup 2022 databse");
 });
 
-exports.getTeams = function(request, response){
+function getTeams(request, response){
     connection.query("SELECT * FROM teams", function(err, rows, fields){
         console.log("inside the teams query");
         if (err) throw err;
-        console.log(JSON.stringify(rows));
+
         response.send(JSON.stringify(rows));
     });
 }
 
-exports.getPlayers = function(request, response){
+function getPlayers(request, response){
     connection.query("SELECT * FROM players", function(err, rows, fields){
         if (err) throw err;
 
@@ -30,4 +30,33 @@ exports.getPlayers = function(request, response){
     });
 }
 
-connection.end();
+function getPlayersSpecific(request, response, id){
+    if(id.id == "All..."){
+        connection.query("SELECT * FROM players", function(err, rows, fields){
+            if (err) throw err;
+    
+            response.send(JSON.stringify(rows));
+        });
+    }
+    else {
+        connection.query("SELECT * FROM players WHERE teamID = " + id.id, function(err, rows, fields){
+            if (err) throw err;
+    
+            response.send(JSON.stringify(rows));
+        });
+    }   
+}
+
+function getTodaysMatches(request, response, day, month, year){
+    connection.query("SELECT * FROM fixturesresults WHERE date = \"" + year.year + "-" + month.month + "-" + day.day + "\";", function(err, rows, fields){
+        if (err) throw err;
+        response.send(JSON.stringify(rows));
+    });
+}
+
+module.exports = {
+    getTeams,
+    getPlayers,
+    getPlayersSpecific,
+    getTodaysMatches
+}
