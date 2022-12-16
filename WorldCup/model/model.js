@@ -84,6 +84,14 @@ function getLogin(request, response){
     });
 }
 
+function getGames(request, response){
+    connection.query("SELECT * FROM `fixturesresults` ORDER BY datetime;", function(err, rows, fields){
+        if (err) throw err;
+
+        response.send(JSON.stringify(rows));
+    });
+}
+
 module.exports = {
     getTeams,
     getPlayers,
@@ -92,5 +100,6 @@ module.exports = {
     getFixtures,
     getResults,
     getStandings,
-    getLogin
+    getLogin,
+    getGames
 }
