@@ -44,18 +44,18 @@ app.get("/fixtures", function(request, response){
 });
 
 //Returns the results page when the navbar is clicked
-app.get("/results.html", function(request, response){
-    console.log("Results Page");
+app.get("/results", function(request, response){
+    model.getResults(request, response);
 });
 
 //Returns the standings page when the navbar is clicked
-app.get("/standings.html", function(request, response){
-    console.log("Standings Page");
+app.get("/standings", function(request, response){
+    model.getStandings(request, response);
 });
 
 //Returns the login page when the navbar is clicked
-app.get("/login.html", function(request, response){
-    console.log("Login Page");
+app.get("/login", function(request, response){
+    model.getLogin(request, response);
 });
 
 //insert route for all players

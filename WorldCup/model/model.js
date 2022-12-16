@@ -54,9 +54,32 @@ function getTodaysMatches(request, response, day, month, year){
 }
 
 function getFixtures(request, response){
-    connection.query("SELECT * FROM fixturesresults;", function(err, rows, fields){
+    connection.query("SELECT * FROM fixturesresults WHERE status = \"fixture\";", function(err, rows, fields){
         if (err) throw err;
-        console.log(rows);
+        response.send(JSON.stringify(rows));
+    });
+}
+
+function getResults(request, response){
+    connection.query("SELECT * FROM fixturesresults WHERE status = \"result\"", function(err, rows, fields){
+        if (err) throw err;
+
+        response.send(JSON.stringify(rows));
+    });
+}
+
+function getStandings(request, response){
+    connection.query("SELECT * FROM `fixturesresults` group by hTeam;", function(err, rows, fields){
+        if (err) throw err;
+
+        response.send(JSON.stringify(rows));
+    });
+}
+
+function getLogin(request, response){
+    connection.query("SELECT * FROM users", function(err, rows, fields){
+        if (err) throw err;
+
         response.send(JSON.stringify(rows));
     });
 }
@@ -66,5 +89,8 @@ module.exports = {
     getPlayers,
     getPlayersSpecific,
     getTodaysMatches,
-    getFixtures
+    getFixtures,
+    getResults,
+    getStandings,
+    getLogin
 }
