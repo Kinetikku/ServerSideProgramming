@@ -58,6 +58,11 @@ app.get("/login.html", function(request, response){
     console.log("Login Page");
 });
 
+//Returns the login page when the navbar is clicked
+app.get("/admin", function(request, response){
+    model.getGames();
+});
+
 //insert route for all players
 // app.get("/players", function(request, response){
 //     response.send();

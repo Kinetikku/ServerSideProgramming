@@ -61,10 +61,19 @@ function getFixtures(request, response){
     });
 }
 
+function getGames(request, response){
+    connection.query("SELECT * FROM `fixturesresults` ORDER BY datetime;", function(err, rows, fields){
+        if (err) throw err;
+
+        response.send(JSON.stringify(rows));
+    });
+}
+
 module.exports = {
     getTeams,
     getPlayers,
     getPlayersSpecific,
     getTodaysMatches,
-    getFixtures
+    getFixtures,
+    getGames
 }
