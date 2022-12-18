@@ -9,7 +9,7 @@ $("document").ready(function(){
             $('#matchesBody').append("<tr><td>No Matches Today</td></tr>");
         }
         else {
-            $.each(jsonData, function(i, value){
+            $.each(jsonData, function(i){
                 $('#matchesBody').append("<tr>" + "<td>" + "<img src=\"/logos/" + jsonData[i].hTeamID + ".webp\" width=\"40px\">" + "</td>" + "<td>" + jsonData[i].hTeam + "</td>" + "<td>" + jsonData[i].aTeam + "</td>" + "<td>" + "<img src=\"/logos/" + jsonData[i].aTeamID + ".webp\" width=\"40px\">" + "</td>" + "<td>" + jsonData[i].round + "</td>" + "<td>" + jsonData[i].time + "</td>" + "</tr>");
             });
         }

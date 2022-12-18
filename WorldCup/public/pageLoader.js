@@ -1,3 +1,9 @@
 $(document).ready(function(){
-    $("#loadedNav").load("navbar.html");
+    var logCookie = document.cookie;
+
+    if(!logCookie || logCookie == null)
+        $("#loadedNav").load("navbar.html");
+    else if (logCookie)
+        $("#loadedNav").load("navbarAdmin.html");
+    
 });

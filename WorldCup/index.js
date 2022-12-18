@@ -19,6 +19,11 @@ app.get("/", function(request, response){
     console.log("Landing Page");
 });
 
+function updateStandings(request, response){
+    model.updateStandings(request, response);
+};
+
+updateStandings();
 
 //Returns the teams page when the navbar is clicked
 app.get("/teams", function(request, response){
@@ -60,7 +65,7 @@ app.get("/login", function(request, response){
 
 //Returns the login page when the navbar is clicked
 app.get("/admin", function(request, response){
-    model.getGames();
+    model.getGames(request, response);
 });
 
 //insert route for all players
