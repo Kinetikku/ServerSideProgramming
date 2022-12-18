@@ -14,6 +14,19 @@ connection.connect(function (err) {
     console.log("Connected Successfully to World Cup 2022 databse");
 });
 
+function createStandings(request, response){
+    connection.query("DROP TABLE standings;", function(err, rows){
+        if (err)
+        console.log(err.message);
+    });
+    connection.query("CREATE TABLE standings (ID int PRIMARY KEY, name varchar(255), pos int, pld int, gf int, ga int, gd int, pts int, matchGroup varchar(255));");
+    connection.query("SELECT * FROM teams ORDER BY ID", function(err, rows, fields){
+        for(const y of rows){
+            connection.query("INSERT INTO standings (ID, name, pos, pld, gf, ga, gd, pts, matchGroup) values("+ y.ID + ",\"" + y.name + "\",0,0,0,0,0,0,\"" + y.group + "\");");
+        }
+    });
+}
+
 function getTeams(request, response) {
     connection.query("SELECT * FROM teams", function (err, rows, fields) {
         if (err) throw err;
@@ -60,15 +73,8 @@ function getResults(request, response) {
     });
 }
 
-function getStandings(request, response) {
-    connection.query("SELECT * FROM `standings` order by matchGroup, pts;", function (err, results, fields) {
-        console.log(results);
-        response.send(JSON.stringify(results));
-    });
-}
-
 function updateStandings(request, response) {
-    connection.query("UPDATE standings SET pos = 0, pld = 0, gf = 0, ga = 0, gd = 0, pts = 0;")
+    connection.query("UPDATE standings SET pos = 0, pld = 0, gf = 0, ga = 0, gd = 0, pts = 0;");
     connection.query("SELECT * FROM `teams`;", function (err, rows, fields) {
         for (const i of rows) {
             connection.query("SELECT * FROM `fixturesresults` WHERE (hTeamID = " + i.ID + " || aTeamID = " + i.ID + ") && status = 'result';", function (err, inRows, fields) {
@@ -147,6 +153,16 @@ function updateStandings(request, response) {
     });
 }
 
+function getStandings(request, response) {
+    connection.query("SELECT * FROM standings order by matchGroup, pts;", function (err, results, fields) {
+        if (err)
+        console.log(err);
+        
+        console.log(results);
+        response.send(JSON.stringify(results));
+    });
+}
+
 function getLogin(request, response) {
     connection.query("SELECT * FROM users", function (err, rows, fields) {
         if (err) throw err;
@@ -173,5 +189,6 @@ module.exports = {
     updateStandings,
     getStandings,
     getLogin,
-    getGames
+    getGames,
+    createStandings
 }

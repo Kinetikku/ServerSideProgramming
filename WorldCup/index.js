@@ -13,17 +13,27 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
+function createStandings(request, response){
+    model.createStandings(request, response);
+}
+
+createStandings();
+
+function updateStandings(request, response){
+    model.updateStandings(request, response);
+}
+
+updateStandings();
+
 //Returns navbar screen as default
 app.get("/", function(request, response){
     response.sendFile(path.join(__dirname + '/public/navbar.html'));
     console.log("Landing Page");
 });
 
-function updateStandings(request, response){
+app.get("/update", function(request, response){
     model.updateStandings(request, response);
-};
-
-updateStandings();
+});
 
 //Returns the teams page when the navbar is clicked
 app.get("/teams", function(request, response){
