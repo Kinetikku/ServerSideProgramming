@@ -9,7 +9,7 @@ var connection = mysql.createPool({
     user: 'root',
     password: '',
     database: 'worldcup2022',
-    connectionLimit: 140
+    connectionLimit: 340
 });
 
 function createStandings(request, response){
@@ -182,7 +182,9 @@ function getGames(request, response) {
 
 function updateFixtures(request, response, data){
     connection.getConnection(function(err){
-        connection.query("UPDATE fixturesresults SET aTeamScore=" + data.away + ", hTeamScore = " + data.home + ", status = \"" + data.status + "\" WHERE matchNumber = " + data.radio + ";");
+        connection.query("UPDATE fixturesresults SET aTeamScore = " + data.away + ", hTeamScore = " + data.home + ", status = \"" + data.radio + "\" WHERE matchNumber = " + data.mID + ";", function(err, rows, fields){
+            if (err) throw err;
+        });
     });
 }
 

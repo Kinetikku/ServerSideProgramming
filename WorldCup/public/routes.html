@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Qatar World Cup 2022</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Routes used for Qatar World Cup 2022">
+        <meta name="author" content="Gareth Craig">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet">
+        <script src="jquery-3.6.1.min.js"></script>
+        <script src="pageLoader.js"></script>
+        <script src="routes.js"></script>
+    </head>
+    <body>
+        <div id="loadedNav"></div>
+        <div>
+            <h1>Routes</h1>
+        </div>
+        <div>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td><button id="teamsRoute">/teams</button></td>
+                        <td>GET /teams</td>
+                    </tr>
+                    <tr>
+                        <td><button id="playersRoute">/players</button></td>
+                        <td>GET /players</td>
+                    </tr>
+                    <tr>
+                        <td><button id="resultsRoute">/results</button></td>
+                        <td>GET /results</td>
+                    </tr>
+                    <tr>
+                        <td><button id="playersTeamRoute">/players/1</button></td>
+                        <td>GET /players/1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h2>JSON Response:</h2>
+            <pre id="jsonResp"></pre>
+        </div>
+    </body>
+</html>

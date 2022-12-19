@@ -11,30 +11,25 @@ $("document").ready(function () {
                 var updateBtn = $("<button>Update...</button>");
                 updateBtn.attr("id", jsonData[i].matchNumber)
                 updateBtn.attr("value", "updateBtn")
-                updateBtn.data("homeScore", jsonData[i].hTeamScore);
-                updateBtn.data("awayScore", jsonData[i].aTeamScore);
                 updateBtn.data("matchID", jsonData[i].matchNumber);
-                updateBtn.data("status", jsonData[i].status);
-
-                var homeScoreData = updateBtn.data("homeScore");
-                var awayScoreData = updateBtn.data("awayScore");
-                var matchIdData = updateBtn.data("matchID");
+                updateBtn.data("radio", jsonData[i].status);
 
                 updateBtn.on("click", function () {
+                    var matchIdData = updateBtn.data("matchID");
+
                     $.ajax({
                         url: '/updateFixtures',
                         type: 'POST',
                         data: {
-                            home: homeScoreData,
-                            away: awayScoreData,
+                            home: $("input[name=\"hTeamScoreText" + i + "\"]").val(),
+                            away: $("input[name=\"aTeamScoreText" + i + "\"]").val(),
                             mID: matchIdData,
                             radio: $("input[name=\"" + i + "\"]:checked").val().toLowerCase()
                         },
                         success: function (response) {
-                            console.log(response);
+
                         }
                     });
-
                 })
 
                 var scoreBtn = $("<button>Scorer...</button>")
