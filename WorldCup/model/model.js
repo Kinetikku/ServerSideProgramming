@@ -180,11 +180,11 @@ function getGames(request, response) {
     });
 }
 
-// function updateFixtures(request, response){
-//     connection.getConnection(function(err){
-//         connection.query("UPDATE ")
-//     });
-// }
+function updateFixtures(request, response, data){
+    connection.getConnection(function(err){
+        connection.query("UPDATE fixturesresults SET aTeamScore=" + data.away + ", hTeamScore = " + data.home + ", status = \"" + data.status + "\" WHERE matchNumber = " + data.radio + ";");
+    });
+}
 
 module.exports = {
     getTeams,
@@ -197,5 +197,6 @@ module.exports = {
     getStandings,
     getLogin,
     getGames,
-    createStandings
+    createStandings,
+    updateFixtures
 }

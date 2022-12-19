@@ -79,6 +79,14 @@ app.get("/admin", function(request, response){
     model.getGames(request, response);
 });
 
+app.post("/updateFixtures", function(request, response){
+    var data = request.body;
+
+    model.updateFixtures(request, response, data);
+
+    response.send("Data received");
+});
+
 var myServer = app.listen(3000, function (){
     console.log("Server running on port 3000");
 });

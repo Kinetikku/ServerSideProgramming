@@ -11,22 +11,30 @@ $("document").ready(function () {
                 var updateBtn = $("<button>Update...</button>");
                 updateBtn.attr("id", jsonData[i].matchNumber)
                 updateBtn.attr("value", "updateBtn")
+                updateBtn.data("homeScore", jsonData[i].hTeamScore);
+                updateBtn.data("awayScore", jsonData[i].aTeamScore);
+                updateBtn.data("matchID", jsonData[i].matchNumber);
+                updateBtn.data("status", jsonData[i].status);
+
+                var homeScoreData = updateBtn.data("homeScore");
+                var awayScoreData = updateBtn.data("awayScore");
+                var matchIdData = updateBtn.data("matchID");
+
                 updateBtn.on("click", function () {
                     $.ajax({
-                        url: '/updateAdmin',
+                        url: '/updateFixtures',
                         type: 'POST',
-                        data: { 
-                          value1: updateBtn.attr("id"),  // the first value to be posted
-                          value2: $('input[name="hTeamScoreText0"]')   // the second value to be posted
+                        data: {
+                            home: homeScoreData,
+                            away: awayScoreData,
+                            mID: matchIdData,
+                            radio: $("input[name=\"" + i + "\"]:checked").val().toLowerCase()
                         },
-                        success: function(response) {  // function to be executed if the request succeeds
-                          // handle the response from the server
-                        },
-                        error: function(xhr, status, error) {  // function to be executed if the request fails
-                          // handle the error
+                        success: function (response) {
+                            console.log(response);
                         }
-                      });
-                      
+                    });
+
                 })
 
                 var scoreBtn = $("<button>Scorer...</button>")
@@ -37,7 +45,7 @@ $("document").ready(function () {
                 })
 
                 var editBtn = $("<button>Edit...</button>")
-                editBtn.attr("id",  jsonData[i].matchNumber)
+                editBtn.attr("id", jsonData[i].matchNumber)
                 editBtn.attr("value", "editBtn")
                 editBtn.on("click", function () {
                     alert($(this).attr("id"));
@@ -53,7 +61,6 @@ $("document").ready(function () {
                     $("#insertUpdate" + i).append(updateBtn);
                     $("#insertScore" + i).append(scoreBtn);
                     $("#insertEdit" + i).append(editBtn);
-                    console.log(html);
                 }
                 else if (jsonData[i].status == "live") {
                     html += "<tr>";
@@ -65,7 +72,6 @@ $("document").ready(function () {
                     $("#insertUpdate" + i).append(updateBtn);
                     $("#insertScore" + i).append(scoreBtn);
                     $("#insertEdit" + i).append(editBtn);
-                    console.log(html);
                 }
                 else if (jsonData[i].status == "result") {
                     html += "<tr>";
@@ -77,7 +83,6 @@ $("document").ready(function () {
                     $("#insertUpdate" + i).append(updateBtn);
                     $("#insertScore" + i).append(scoreBtn);
                     $("#insertEdit" + i).append(editBtn);
-                    console.log(html);
                 }
             });
         });
