@@ -180,6 +180,12 @@ function getGames(request, response) {
     });
 }
 
+// function updateFixtures(request, response){
+//     connection.getConnection(function(err){
+//         connection.query("UPDATE ")
+//     });
+// }
+
 module.exports = {
     getTeams,
     getPlayers,

@@ -8,35 +8,35 @@ $("document").ready(function(){
             
             if(jsonData[i].matchGroup == "Group A"){
                 num--;
-                $("#groupA").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupA").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else if(jsonData[i].matchGroup == "Group B"){
                 num--;
-                $("#groupB").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupB").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else if(jsonData[i].matchGroup == "Group C"){
                 num--;
-                $("#groupC").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupC").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else if(jsonData[i].matchGroup == "Group D"){
                 num--;
-                $("#groupD").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupD").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else if(jsonData[i].matchGroup == "Group E"){
                 num--;
-                $("#groupE").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupE").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else if(jsonData[i].matchGroup == "Group F"){
                 num--;
-                $("#groupF").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupF").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else if(jsonData[i].matchGroup == "Group G"){
                 num--;
-                $("#groupG").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupG").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else if(jsonData[i].matchGroup == "Group H"){
                 num--;
-                $("#groupH").after("<tr><td>" + num + "</td><td>" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
+                $("#groupH").after("<tr><td>" + num + "</td><td><img src=\"/logos/" + jsonData[i].ID + ".webp\" width=\"40px\">" + jsonData[i].name + "</td><td>" + jsonData[i].pld + "</td><td>" + jsonData[i].gf + "</td><td>" + jsonData[i].ga + "</td><td>" + jsonData[i].gd + "</td><td>" + jsonData[i].pts + "</td></tr>");
             }
             else {
                 
