@@ -1,7 +1,6 @@
 $("document").ready(function(){
     $.getJSON("http://localhost:3000/standings", function(jsonData){
     //Work out each teams matches and points
-        console.log(jsonData);
         var num = 5;
         $.each(jsonData, function(i){
             if(num == 1)

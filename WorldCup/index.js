@@ -5,6 +5,7 @@ var _ = require('underscore');
 var bodyParser = require("body-parser");
 var model = require('./model/model.js');
 const request = require("express/lib/request");
+const { response } = require("express");
 
 var app = express();
 
@@ -25,14 +26,14 @@ function updateStandings(request, response){
 
 updateStandings();
 
+app.get("/update", function(request, response){
+    model.updateStandings(request, response);
+});
+
 //Returns navbar screen as default
 app.get("/", function(request, response){
     response.sendFile(path.join(__dirname + '/public/navbar.html'));
     console.log("Landing Page");
-});
-
-app.get("/update", function(request, response){
-    model.updateStandings(request, response);
 });
 
 //Returns the teams page when the navbar is clicked
@@ -77,23 +78,6 @@ app.get("/login", function(request, response){
 app.get("/admin", function(request, response){
     model.getGames(request, response);
 });
-
-//insert route for all players
-// app.get("/players", function(request, response){
-//     response.send();
-//     console.log("Send all players route");
-// });
-//insert route for all teams
-
-//insert route for fixtures
-
-//insert route for results
-
-//insert route standings
-
-//insert route for specific player
-
-//insert route for specific team
 
 var myServer = app.listen(3000, function (){
     console.log("Server running on port 3000");

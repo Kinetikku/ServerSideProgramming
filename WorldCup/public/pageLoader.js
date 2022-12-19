@@ -6,4 +6,5 @@ $(document).ready(function(){
     else if (logCookie)
         $("#loadedNav").load("navbarAdmin.html");
     
+    $("#footer").load("footer.html");
 });
