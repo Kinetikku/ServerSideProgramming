@@ -12,7 +12,6 @@ $("document").ready(function () {
                 updateBtn.attr("id", jsonData[i].matchNumber)
                 updateBtn.attr("value", "updateBtn")
                 updateBtn.data("matchID", jsonData[i].matchNumber);
-                updateBtn.data("radio", jsonData[i].status);
 
                 updateBtn.on("click", function () {
                     var matchIdData = updateBtn.data("matchID");
